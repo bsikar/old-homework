@@ -26,8 +26,7 @@
 
 void sort3(int, int, int);
 
-int main() 
-{
+int main() {
     int a, b, c;
     std::cout << "Enter a value for A: ";
     std::cin >> a;
@@ -39,8 +38,7 @@ int main()
     sort3(a, b, c);
 }
 
-void sort3(int x, int y, int z) 
-{
+void sort3(int x, int y, int z) {
     if (x > y && x > z) {
         printf("%d, %d, %d\n", (y < z) ? y : z, (y > z) ? y : z, x );
     } else if (y > x && y > z) {

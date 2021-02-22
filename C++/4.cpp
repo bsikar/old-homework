@@ -25,14 +25,12 @@
 #include <string>
 using namespace std;
 
-class Word
-{
+class Word {
     public:
         string text;
         Word *next = nullptr;
 
-        Word(string _text)
-        {
+        Word(string _text) {
             text = _text;
         }
 };
@@ -41,8 +39,7 @@ void printLinkedList(Word *);
 void insertAtTail(Word *&, string);
 string deleteWord(Word *&, string);
 
-int main()
-{
+int main() {
     Word *head = nullptr;
     printLinkedList(head);
 
@@ -56,7 +53,7 @@ int main()
     }
 }
 
-void printLinkedList(Word *temp)  {
+void printLinkedList(Word *temp){
     if (temp == nullptr) {
         cout << "(empty)" <<endl;
 

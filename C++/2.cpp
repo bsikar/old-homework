@@ -28,8 +28,7 @@
 #include <cmath>
 using namespace std;
 
-int main() 
-{
+int main() {
     int maxSize = 0;
     string prompt = "Please enter a single word:";
     string str;

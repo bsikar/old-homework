@@ -31,8 +31,7 @@ const int size = 5;
 
 void swapMinToEnd(int [], int);
 
-int main()
-{
+int main() {
     int anums[size] = {0};
     for (int i = 0; i < size; ++i) {
         cout << "Please enter an integer value: ";
@@ -47,8 +46,7 @@ int main()
     }
 }
 
-void swapMinToEnd(int nums[], int size) 
-{
+void swapMinToEnd(int nums[], int size) {
     int tmp = nums[0];
     int index = 0;
 

@@ -25,8 +25,7 @@
 #include <iomanip>
 using namespace std;
 
-class Hole 
-{
+class Hole {
     public:
         bool isEmpty = true;
         int id = -1; 
@@ -38,19 +37,16 @@ class Hole
         Hole *left = nullptr;
         Hole *right = nullptr;
 
-        Hole(bool e, int num)
-        {
+        Hole(bool e, int num) {
             isEmpty = e;
             id = num; 
         }
 
-        void printHoleID()
-        { 
+        void printHoleID() { 
             cout << setw(4) << id;
         }
 
-        void printHolePeg() 
-        {
+        void printHolePeg() {
             if (isEmpty) {
                 cout << setw(4) << "-";
             } else {
@@ -59,16 +55,14 @@ class Hole
         }
 };
 
-class PegJumpGame 
-{
+class PegJumpGame {
     private:
         Hole *holes[15] = { 
             nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr
         }; 
 
     public:
-        PegJumpGame()
-        {
+        PegJumpGame() {
             holes[0] = new Hole(true, 0); 
             holes[1] = new Hole(false, 1); 
             holes[2] = new Hole(false, 2); 
@@ -161,8 +155,7 @@ class PegJumpGame
             holes[14]->left = holes[13];
         } 
 
-        bool movePeg(int fromID, string direction) 
-        {
+        bool movePeg(int fromID, string direction) {
             Hole *holePtr = holes[fromID]; 
             if (holePtr->isEmpty) {
                 cout << "\nSorry There is no peg I can use to jump at location " << fromID << ". Move aborted.\n\n";
@@ -210,8 +203,7 @@ class PegJumpGame
             return doJump(holePtr, jumpOverHole, jumpToHole); 
         } 
 
-        bool doJump(Hole *jumpFromHolePtr, Hole *jumpOverHolePtr, Hole *jumpToHolePtr) 
-        {
+        bool doJump(Hole *jumpFromHolePtr, Hole *jumpOverHolePtr, Hole *jumpToHolePtr) {
             if (jumpFromHolePtr == nullptr || jumpToHolePtr == nullptr || jumpOverHolePtr == nullptr) {
                 return false;
             }
@@ -227,8 +219,7 @@ class PegJumpGame
             return true; 
         } 
 
-        bool printBoard() 
-        { 
+        bool printBoard() { 
             for (int loop = 0; loop < 2; ++loop) { 
                 int holeCount = 0, holeIDProblems = 0, linkProblems = 0;
                 string pad(14, ' '); 
@@ -319,8 +310,7 @@ class PegJumpGame
         } 
 };
 
-int main() 
-{
+int main() {
     cout << "Calling PegJumpGame constructor...." << endl;
     PegJumpGame p; 
     cout << "OK Let's play!!" << endl;

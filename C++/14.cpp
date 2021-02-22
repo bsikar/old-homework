@@ -28,8 +28,7 @@ using namespace std;
 string encrypt(string);
 string decrypt(string);
 
-int main()
-{
+int main() {
     string userInput;
     string userPrompt = "Enter a string to encrypt: ";
     string encryptedPrompt = "Your encrypted string is: ";

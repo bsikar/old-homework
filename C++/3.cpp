@@ -30,8 +30,7 @@
 
 void analyzeValues(int [], int, int *, int *, bool *, char *, double *);
 
-int main() 
-{
+int main() {
     int *ar = (int *)calloc(1, sizeof(int)), count, minVal, maxVal;
     bool isLastEven;
     char hexChar;
@@ -62,8 +61,7 @@ int main()
     free(ar);
 }
 
-void analyzeValues(int nums[], int count, int *minVal, int *maxVal, bool *isLastEven, char *hexChar, double *ave)
-{
+void analyzeValues(int nums[], int count, int *minVal, int *maxVal, bool *isLastEven, char *hexChar, double *ave) {
     int sum = nums[0];
     char tmp[2] = "";
     *maxVal = *minVal = nums[0];

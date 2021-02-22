@@ -29,8 +29,7 @@ using namespace std;
 void printMaze(char [][10]);
 void initMaze(char [][10], int);
 
-int main() 
-{
+int main() {
     int innerWallGap;
     char maze[10][10];
 
@@ -41,8 +40,7 @@ int main()
 }
 
 
-void printMaze(char m[][10]) 
-{
+void printMaze(char m[][10]) {
     for (int i = 0; i < 10; ++i) {
         for (int o = 0; o < 10; ++o) {
             cout << m[i][o];
@@ -51,8 +49,7 @@ void printMaze(char m[][10])
     }
 }
 
-void initMaze(char m[10][10], int gap) 
-{
+void initMaze(char m[10][10], int gap) {
     for (int i = 0; i < 10; ++i) {
         for (int o = 0; o < 10; ++o) {
             if (i == 0 || i == 9) {

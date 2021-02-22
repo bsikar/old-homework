@@ -30,8 +30,7 @@ void sum(int &, int, int);
 void sum(float &, float, float); 
 void testMyFunctions(); 
 
-int main() 
-{
+int main() {
     string stringAPrompt = "Enter a string for argument A: ";
     string stringBPrompt = "Enter a string for argument B: ";
     string intAPrompt = "Enter an integer for argument A: ";
@@ -76,23 +75,19 @@ int main()
 
 
 
-void sum(int & result, string a, string b)
-{
+void sum(int & result, string a, string b) {
     result = a.length()+b.length();
 }
 
-void sum(int & result, int a, int b)
-{
+void sum(int & result, int a, int b) {
     result = a+b;
 }
 
-void sum(float & result, float a, float b)
-{
+void sum(float & result, float a, float b) {
     result = a+b;
 }
 
-void testMyFunctions()
-{
+void testMyFunctions() {
     int stringTotal = -1;
     cout << "TESTING YOUR string sum() function...." << endl;
     sum(stringTotal, "1234", "");

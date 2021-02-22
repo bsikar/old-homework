@@ -32,8 +32,7 @@ string chooseTool();
 string whoWinsTurn(string, string);
 string getComputerTool();
 
-int main()
-{
+int main() {
     testMyFunctions();
     srand(time(NULL));
     int playerPoints = 0, computerPoints = 0;
@@ -57,8 +56,7 @@ int main()
     return 0;
 }
 
-void testMyFunctions()
-{
+void testMyFunctions() {
     string tmp;
     cout << "TESTING YOUR getString() function...." << endl;
     tmp = getString("Please type the word 'rock' (no quotes) and hit return: ");
@@ -112,8 +110,7 @@ void testMyFunctions()
     cout << "----------------------------------------------" << endl;
 }
     
-string getString(string myPrompt)
-{
+string getString(string myPrompt) {
     cout << myPrompt;
     string output;
     cin >> output;
@@ -121,13 +118,11 @@ string getString(string myPrompt)
     return output;
 }
 
-string chooseTool()
-{
+string chooseTool() {
     return getString("rock, paper, or shears? ");
 }
 
-string whoWinsTurn(string playerString, string computerString) 
-{
+string whoWinsTurn(string playerString, string computerString) {
     cout << "Player Entered: " << playerString << endl;
     cout << "Computer Entered: " << computerString << endl;
 
@@ -172,9 +167,7 @@ string whoWinsTurn(string playerString, string computerString)
     return "player";
 }
 
-string getComputerTool()
-{
-
+string getComputerTool() {
     switch (rand() % 3) {
     case 0: 
         return "rock";

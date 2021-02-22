@@ -24,8 +24,7 @@
 #include <iostream>
 using namespace std;
 
-int main() 
-{
+int main() {
     string prompt = "Enter a random integer in the range 0 to 100 (inclusive)";
     int intArray[10];
     bool boolArray[101];

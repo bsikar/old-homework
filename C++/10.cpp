@@ -30,8 +30,7 @@ void fillRandom(int *, int);
 void printAll(int []); 
 int sumEvenNumbers(int *); 
 
-int main() 
-{
+int main() {
     int seed; 
     int v[11] = {0}; 
     
@@ -48,16 +47,14 @@ int main()
     cout << sumEvenNumbers(v) << endl; 
 } 
 
-void printAll(int v[])
-{
+void printAll(int v[]) {
     for (int i = 0; i < 10; ++i) {
         cout << v[i] << ", ";
     }
     cout << endl;
 }
 
-void fillRandom(int v[], int n) 
-{
+void fillRandom(int v[], int n) {
     int number;
     for (int i = 0; i < n; ++i) {
         number = rand() % 10;
@@ -65,8 +62,7 @@ void fillRandom(int v[], int n)
     }
 }
 
-int sumEvenNumbers(int v[])
-{
+int sumEvenNumbers(int v[]) {
     int sum = 0;
     for (int i = 0; i < 10; ++i) {
         if (!(v[i] % 2)) {

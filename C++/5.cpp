@@ -26,16 +26,14 @@ using namespace std;
 
 void binarySearch(int, int);
 
-int main() 
-{
+int main() {
     srand(time(NULL));
     cout << "Please think of a number between 1 and 100 (inclusive)" << endl;
     cout << ".... Now, please answer lower, higher, or yes, based on my questions." << endl;
     binarySearch(1, 100);
 }
 
-void binarySearch(int lowerBound, int upperBound)
-{
+void binarySearch(int lowerBound, int upperBound) {
     if (lowerBound > upperBound) {
         cout << "You must have cheated!\n";
         

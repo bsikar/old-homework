@@ -26,33 +26,28 @@ using namespace std;
 
 void testMe(); 
 
-class Car
-{
+class Car {
     private: 
         bool isRunning = false;
         int gear = 0;
         int velocity = 0;
 
     public: 
-        Car()
-        { 
+        Car() { 
             cout << "Car: Constructor here!" << endl;
         }
 
-        ~Car() 
-        {
+        ~Car() {
             cout << "Car: Destructor here - Off to the junkyard: goodbye cruel world!" << endl;
         }
 
-        bool setEngineOn() 
-        {
+        bool setEngineOn() {
             isRunning = true;
 
             return true; 
         }
 
-        bool setEngineOff() 
-        { 
+        bool setEngineOff() { 
             if (gear != 0) {
                 return false;
             }
@@ -61,13 +56,11 @@ class Car
             return true; 
         }
 
-        bool getIsEngineRunning() 
-        {
+        bool getIsEngineRunning() {
             return isRunning; 
         }
 
-        bool setGear(int newGear) 
-        {
+        bool setGear(int newGear) {
             if (gear == 0) {
                 gear = newGear;
 
@@ -81,13 +74,11 @@ class Car
             return false; 
         }
 
-        int getGear() 
-        {
+        int getGear() {
             return gear; 
         }
 
-        bool setVelocity(int newVelocity) 
-        {
+        bool setVelocity(int newVelocity) {
             if (gear != 0) {
                 velocity = newVelocity;
 
@@ -97,19 +88,16 @@ class Car
             return false; 
         } 
 
-        int getVelocity() 
-        {
+        int getVelocity() {
             return velocity; 
         } 
 }; 
 
-int main() 
-{
+int main() {
     testMe(); 
 } 
 
-void testMe() 
-{
+void testMe() {
     int errorCount= 0;
     int testCount = 1;
 
