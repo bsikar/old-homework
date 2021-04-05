@@ -8,10 +8,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,21 +28,21 @@ using namespace std;
 class Hole {
     public:
         bool isEmpty = true;
-        int id = -1; 
+        int id = -1;
 
-        Hole *upRight = nullptr; 
-        Hole *upLeft = nullptr; 
-        Hole *downLeft = nullptr; 
-        Hole *downRight = nullptr; 
+        Hole *upRight = nullptr;
+        Hole *upLeft = nullptr;
+        Hole *downLeft = nullptr;
+        Hole *downRight = nullptr;
         Hole *left = nullptr;
         Hole *right = nullptr;
 
         Hole(bool e, int num) {
             isEmpty = e;
-            id = num; 
+            id = num;
         }
 
-        void printHoleID() { 
+        void printHoleID() {
             cout << setw(4) << id;
         }
 
@@ -57,29 +57,29 @@ class Hole {
 
 class PegJumpGame {
     private:
-        Hole *holes[15] = { 
+        Hole *holes[15] = {
             nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr
-        }; 
+        };
 
     public:
         PegJumpGame() {
-            holes[0] = new Hole(true, 0); 
-            holes[1] = new Hole(false, 1); 
-            holes[2] = new Hole(false, 2); 
-            holes[3] = new Hole(false, 3); 
-            holes[4] = new Hole(false, 4); 
-            holes[5] = new Hole(false, 5); 
-            holes[6] = new Hole(false, 6); 
-            holes[7] = new Hole(false, 7); 
-            holes[8] = new Hole(false, 8); 
-            holes[9] = new Hole(false, 9); 
-            holes[10] = new Hole(false, 10); 
-            holes[11] = new Hole(false, 11); 
-            holes[12] = new Hole(false, 12); 
-            holes[13] = new Hole(false, 13); 
+            holes[0] = new Hole(true, 0);
+            holes[1] = new Hole(false, 1);
+            holes[2] = new Hole(false, 2);
+            holes[3] = new Hole(false, 3);
+            holes[4] = new Hole(false, 4);
+            holes[5] = new Hole(false, 5);
+            holes[6] = new Hole(false, 6);
+            holes[7] = new Hole(false, 7);
+            holes[8] = new Hole(false, 8);
+            holes[9] = new Hole(false, 9);
+            holes[10] = new Hole(false, 10);
+            holes[11] = new Hole(false, 11);
+            holes[12] = new Hole(false, 12);
+            holes[13] = new Hole(false, 13);
             holes[14] = new Hole(false, 14);
 
-            holes[0]->downLeft = holes[1]; 
+            holes[0]->downLeft = holes[1];
             holes[0]->downRight = holes[2];
 
             holes[1]->upRight = holes[0];
@@ -153,10 +153,10 @@ class PegJumpGame {
 
             holes[14]->upLeft = holes[9];
             holes[14]->left = holes[13];
-        } 
+        }
 
         bool movePeg(int fromID, string direction) {
-            Hole *holePtr = holes[fromID]; 
+            Hole *holePtr = holes[fromID];
             if (holePtr->isEmpty) {
                 cout << "\nSorry There is no peg I can use to jump at location " << fromID << ". Move aborted.\n\n";
                 return false;
@@ -200,8 +200,8 @@ class PegJumpGame {
                 return false;
             }
 
-            return doJump(holePtr, jumpOverHole, jumpToHole); 
-        } 
+            return doJump(holePtr, jumpOverHole, jumpToHole);
+        }
 
         bool doJump(Hole *jumpFromHolePtr, Hole *jumpOverHolePtr, Hole *jumpToHolePtr) {
             if (jumpFromHolePtr == nullptr || jumpToHolePtr == nullptr || jumpOverHolePtr == nullptr) {
@@ -216,14 +216,14 @@ class PegJumpGame {
             jumpFromHolePtr->isEmpty = true;
             jumpOverHolePtr->isEmpty = true;
 
-            return true; 
-        } 
+            return true;
+        }
 
-        bool printBoard() { 
-            for (int loop = 0; loop < 2; ++loop) { 
+        bool printBoard() {
+            for (int loop = 0; loop < 2; ++loop) {
                 int holeCount = 0, holeIDProblems = 0, linkProblems = 0;
-                string pad(14, ' '); 
-                Hole *holePtr = holes[0]; 
+                string pad(14, ' ');
+                Hole *holePtr = holes[0];
                 if (holePtr == nullptr) {
                     cout << "printBoard(): ERROR: holes[0] is null. Cannot print empty board.Abort" << endl;
                     return false;
@@ -235,26 +235,26 @@ class PegJumpGame {
                     cout << "\nYour Pegs are:" << endl;
                 }
 
-                cout << pad; 
+                cout << pad;
 
-                while (holePtr != nullptr) { 
+                while (holePtr != nullptr) {
                     if (loop == 0) {
-                        holePtr->printHoleID(); 
+                        holePtr->printHoleID();
                     } else {
-                        holePtr->printHolePeg(); 
+                        holePtr->printHolePeg();
                     }
 
-                    if (holeCount++ != holePtr->id) { 
-                        holeIDProblems++; 
+                    if (holeCount++ != holePtr->id) {
+                        holeIDProblems++;
                     }
 
                     if (loop == 0) {
-                        linkProblems += (holePtr->left != nullptr ? (holePtr->left->right != holePtr ? 1 : 0) : 0 ); 
-                        linkProblems += (holePtr->right != nullptr ? (holePtr->right->left != holePtr ? 1 : 0) : 0 ); 
-                        linkProblems += (holePtr->upRight != nullptr ? (holePtr->upRight->downLeft != holePtr ? 1 : 0) : 0 ); 
-                        linkProblems += (holePtr->upLeft != nullptr ? (holePtr->upLeft->downRight != holePtr ? 1 : 0) : 0 ); 
-                        linkProblems += (holePtr->downLeft != nullptr ? (holePtr->downLeft->upRight != holePtr ? 1 : 0) : 0 ); 
-                        linkProblems += (holePtr->downRight != nullptr ? (holePtr->downRight->upLeft != holePtr ? 1 : 0) : 0 ); 
+                        linkProblems += (holePtr->left != nullptr ? (holePtr->left->right != holePtr ? 1 : 0) : 0 );
+                        linkProblems += (holePtr->right != nullptr ? (holePtr->right->left != holePtr ? 1 : 0) : 0 );
+                        linkProblems += (holePtr->upRight != nullptr ? (holePtr->upRight->downLeft != holePtr ? 1 : 0) : 0 );
+                        linkProblems += (holePtr->upLeft != nullptr ? (holePtr->upLeft->downRight != holePtr ? 1 : 0) : 0 );
+                        linkProblems += (holePtr->downLeft != nullptr ? (holePtr->downLeft->upRight != holePtr ? 1 : 0) : 0 );
+                        linkProblems += (holePtr->downRight != nullptr ? (holePtr->downRight->upLeft != holePtr ? 1 : 0) : 0 );
                         if (linkProblems > 0) {
                             cout << "\nPrintBoard(): Error: encountered " << linkProblems << " problems with the links on hole with ID == " << holePtr->id << ".Please check your constructor. Abort." << endl;
                             return false;
@@ -282,41 +282,41 @@ class PegJumpGame {
                     }
 
                     if (holePtr->right != nullptr) {
-                        holePtr = holePtr->right; 
-                    } else { 
+                        holePtr = holePtr->right;
+                    } else {
                         while (holePtr->left != nullptr) {
                             holePtr = holePtr->left;
                         }
 
                         if (holePtr->downLeft != nullptr) {
-                            holePtr = holePtr->downLeft; 
-                            pad.pop_back(); 
-                            pad.pop_back(); 
+                            holePtr = holePtr->downLeft;
+                            pad.pop_back();
+                            pad.pop_back();
                             cout << endl;
-                            cout << pad; 
+                            cout << pad;
                         } else {
-                            break; 
+                            break;
                         }
-                    } 
-                } 
+                    }
+                }
                 cout << endl;
                 if (loop == 0 && holeIDProblems != 0) {
                     cout << "\nPrintBoard(): Error: " << holeIDProblems << " of your hole IDs shown above are not correct! Please check your constructor. Abort." << endl;
                     return false;
                 }
-            } 
+            }
 
-            return true; 
-        } 
+            return true;
+        }
 };
 
 int main() {
     cout << "Calling PegJumpGame constructor...." << endl;
-    PegJumpGame p; 
+    PegJumpGame p;
     cout << "OK Let's play!!" << endl;
 
-    int pegToMove; 
-    string direction; 
+    int pegToMove;
+    string direction;
     bool moveSucceeded = false;
 
     if (!p.printBoard()) {
@@ -336,16 +336,16 @@ int main() {
         cout << "In what direction would you like to move peg #" << pegToMove << " (upLeft, upRight, left, right, downLeft, or downRight) ? ";
         cin >> direction;
 
-        moveSucceeded = p.movePeg(pegToMove, direction); 
+        moveSucceeded = p.movePeg(pegToMove, direction);
 
-        if (moveSucceeded) { 
+        if (moveSucceeded) {
             cout << "Well-played!" << endl;
-            if (!p.printBoard()) { 
-                break; 
+            if (!p.printBoard()) {
+                break;
             }
         } else {
             cout << "Sorry that move did not work" << endl;
         }
-    } 
+    }
 }
 

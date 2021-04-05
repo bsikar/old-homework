@@ -1,17 +1,17 @@
 /* MIT License
  *
  * Copyright (c) 2021 Brighton Sikarskie
- *  
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -36,7 +36,7 @@ int main() {
     testMyFunctions();
     srand(time(NULL));
     int playerPoints = 0, computerPoints = 0;
-    
+
     while (playerPoints != 4 && computerPoints != 4) {
         string check = chooseTool();
         if (check == "quit") {
@@ -52,7 +52,7 @@ int main() {
         }
         cout << "The score is: Player Score = "<< playerPoints << ", Computer Score =" << computerPoints << "\n\n";
     }
-    
+
     return 0;
 }
 
@@ -81,17 +81,17 @@ void testMyFunctions() {
 
     cout << "OK." << endl;
     cout << "TESTING YOUR whoWinsTurn() function....";
-    vector<vector<string>> testSuite = { 
-        {"paper", "rock", "player"}, 
-        {"rock", "paper", "computer"}, 
-        
-        {"rock", "shears", "player"}, 
-        {"shears", "rock", "computer"}, 
-        
-        {"shears", "paper", "player"}, 
-        {"paper", "shears", "computer"}, 
-        
-        {"paper", "paper", "tie"}, 
+    vector<vector<string>> testSuite = {
+        {"paper", "rock", "player"},
+        {"rock", "paper", "computer"},
+
+        {"rock", "shears", "player"},
+        {"shears", "rock", "computer"},
+
+        {"shears", "paper", "player"},
+        {"paper", "shears", "computer"},
+
+        {"paper", "paper", "tie"},
         {"rock", "rock", "tie"},
         {"shears", "shears", "tie"},
     };
@@ -109,7 +109,7 @@ void testMyFunctions() {
     cout << "TESTING COMPLETE - great job on your functions!" << endl;
     cout << "----------------------------------------------" << endl;
 }
-    
+
 string getString(string myPrompt) {
     cout << myPrompt;
     string output;
@@ -169,9 +169,9 @@ string whoWinsTurn(string playerString, string computerString) {
 
 string getComputerTool() {
     switch (rand() % 3) {
-    case 0: 
+    case 0:
         return "rock";
-    case 1: 
+    case 1:
         return "paper";
     case 2:
         return "shears";

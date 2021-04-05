@@ -8,10 +8,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,16 +24,16 @@
 #include <iostream>
 using namespace std;
 
-void testMe(); 
+void testMe();
 
 class Car {
-    private: 
+    private:
         bool isRunning = false;
         int gear = 0;
         int velocity = 0;
 
-    public: 
-        Car() { 
+    public:
+        Car() {
             cout << "Car: Constructor here!" << endl;
         }
 
@@ -44,20 +44,20 @@ class Car {
         bool setEngineOn() {
             isRunning = true;
 
-            return true; 
+            return true;
         }
 
-        bool setEngineOff() { 
+        bool setEngineOff() {
             if (gear != 0) {
                 return false;
             }
             isRunning = false;
 
-            return true; 
+            return true;
         }
 
         bool getIsEngineRunning() {
-            return isRunning; 
+            return isRunning;
         }
 
         bool setGear(int newGear) {
@@ -71,11 +71,11 @@ class Car {
                 return true;
             }
 
-            return false; 
+            return false;
         }
 
         int getGear() {
-            return gear; 
+            return gear;
         }
 
         bool setVelocity(int newVelocity) {
@@ -85,17 +85,17 @@ class Car {
                 return true;
             }
 
-            return false; 
-        } 
+            return false;
+        }
 
         int getVelocity() {
-            return velocity; 
-        } 
-}; 
+            return velocity;
+        }
+};
 
 int main() {
-    testMe(); 
-} 
+    testMe();
+}
 
 void testMe() {
     int errorCount= 0;
@@ -157,7 +157,7 @@ void testMe() {
     if (c.getGear() != 1) {
         cout << "Error: We should still be in DRIVE. Abort" << endl;
         errorCount++;
-    
+
         return;
     } else {
         cout << "OK!" << endl;
@@ -267,7 +267,7 @@ void testMe() {
     if (!c.setGear(0)) {
         cout << "Error: The car would not let us switch the gear to PARK after we stopped.Abort." << endl;
         errorCount++;
-        
+
         return;
     } else {
         cout << "OK!" << endl;
@@ -277,7 +277,7 @@ void testMe() {
     if (c.getGear() != 0) {
         cout << "Error: We should be in PARK. Abort" << endl;
         errorCount++;
-    
+
         return;
     } else {
         cout << "OK!" << endl;
@@ -478,4 +478,4 @@ void testMe() {
     } else {
         cout << "Hmm... there are a few things you will need add to your car to pass your driving test... " << endl;
     }
-} 
+}
